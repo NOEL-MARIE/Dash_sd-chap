@@ -54,7 +54,6 @@ export default function Dashboard() {
   const [bugsHover, setbugsHover] = useState(false);
 
   const [SupHover, setSupHover] = useState(false);
-  const [SupportHover, setSupportHover] = useState(false);
   const [AnalyseHover, setAnalyseHover] = useState(false);
 
   const [ScanHover, setScanHover] = useState(false);
