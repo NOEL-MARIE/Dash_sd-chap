@@ -40,7 +40,7 @@ export default function Dashboard() {
     /*======================================================================= POUR MON hover=================================================================================*/
   }
 
-  const [dashHover, setDashHover] = useState(false); // Pour gérer l'effet de hover
+  const [DashHover, setDashHover] = useState(false); // Pour gérer l'effet de hover
   const [isSelected, setIsSelected] = useState(false); // Pour suivre l'état du lien sélectionné
 
   const handleClick = () => {
@@ -51,6 +51,8 @@ export default function Dashboard() {
   const [transHover, settransHover] = useState(false);
   const [parHover, setparHover] = useState(false);
   const [AdminHover, setAdminHover] = useState(false);
+  const [bugsHover, setbugsHover] = useState(false);
+
   const [SupHover, setSupHover] = useState(false);
   const [SupportHover, setSupportHover] = useState(false);
   const [AnalyseHover, setAnalyseHover] = useState(false);
@@ -109,311 +111,350 @@ export default function Dashboard() {
 
           {/*======================================================================= DEBUT MENU PRINCIPAL =================================================================================*/}
 
-          <div className=" flex flex-col  ">
+          <div className=" flex flex-col">
             <div className="flex flex-col mt-5 ">
               <p className="font-WorkSans text-xs ml-7 md:ml-7 ">
                 <u>P</u>rincipal
               </p>
               <ul className={`   pt-1    `}>
-                <Link href="/Tab-bord">
-                  <li className="flex flex-row space-x-4 pt-1 h-9 text-xl">
-                    {/* Indicateur violet */}
+                <Link
+                  href="/Tab-bord"
+                  className="flex mt-1 w-52 h-9 rounded-lg  items-center space-x-3 transition-all duration-300"
+                  onMouseEnter={() => setDashHover(true)} // Hover
+                  onMouseLeave={() => setDashHover(false)} // Fin du hover
+                >
+                  {/* Indicateur violet */}
+                  <div
+                    className={`w-1 h-5 rounded-r-lg transition-all duration-300 ${
+                      chemin === "/Tab-bord" ? "bg-[#8559C5]" : "bg-transparent"
+                    }`}
+                  ></div>
+
+                  {/* Conteneur principal du contenu */}
+                  <div
+                    className={`flex w-full items-center space-x-3 h-7 transition-all duration-300 ${
+                      DashHover || chemin === "/Tab-bord" ? "bg-[#F5F5F5]" : ""
+                    }`}
+                  >
+                    {/* Icône du lien */}
                     <div
-                      className={`flex mt-1 transition-all duration-500 ${
-                        chemin === "/Tab-bord"
-                          ? "w-1 h-5 bg-[#8559C5] rounded-r-lg"
-                          : "w-1 h-full bg-transparent"
+                      className={`text-xl transition-transform duration-300 ${
+                        DashHover || chemin === "/Tab-bord"
+                          ? "scale-110"
+                          : "scale-100"
                       }`}
-                    ></div>
-
-                    {/* Conteneur du lien */}
-                    <div
-                      className={`flex space-x-3 w-52 rounded-lg h-7 pl-2 items-center 
-              ${
-                chemin === "/Tab-bord" || dashHover
-                  ? "bg-[#F5F5F5]" // Fond gris actif ou hover
-                  : ""
-              }`}
-                      onMouseEnter={() => setDashHover(true)} // Hover
-                      onMouseLeave={() => setDashHover(false)} // Fin du hover
                     >
-                      {/* Icône du lien */}
-                      <div
-                        className={`text-xl transition-all duration-500 ${
-                          dashHover || chemin === "/Tab-bord"
-                            ? "scale-110"
-                            : "scale-100"
-                        }`}
-                      >
-                        {dashHover || chemin === "/Tab-bord" ? (
-                          <TbLayoutDashboardFilled />
-                        ) : (
-                          <TbLayoutDashboard />
-                        )}
-                      </div>
-
-                      {/* Texte du lien */}
-                      <p className="flex mt-1 text-xs">Tableau de bord</p>
+                      {DashHover || chemin === "/Tab-bord" ? (
+                        <TbLayoutDashboardFilled />
+                      ) : (
+                        <TbLayoutDashboard />
+                      )}
                     </div>
-                  </li>
+
+                    {/* Texte du lien */}
+                    <p className="text-xs">Tableau de bord</p>
+                  </div>
+                </Link>
+
+                <Link
+                  href="/Gestion-user"
+                  className="flex mt-1 w-52 h-9 rounded-lg  items-center space-x-3 transition-all duration-300"
+                  onMouseEnter={() => setUserhover(true)} // Hover
+                  onMouseLeave={() => setUserhover(false)} // Fin du hover
+                >
+                  {/* Indicateur violet */}
+                  <div
+                    className={`w-1 h-5 rounded-r-lg transition-all duration-300 ${
+                      chemin === "/Gestion-user"
+                        ? "bg-[#8559C5]"
+                        : "bg-transparent"
+                    }`}
+                  ></div>
+
+                  {/* Conteneur principal du contenu */}
+                  <div
+                    className={`flex w-full items-center space-x-3 h-7 transition-all duration-300 ${
+                      Userhover || chemin === "/Gestion-user"
+                        ? "bg-[#F5F5F5]"
+                        : ""
+                    }`}
+                  >
+                    {/* Icône du lien */}
+                    <div
+                      className={`text-xl transition-transform duration-300 ${
+                        Userhover || chemin === "/Gestion-user"
+                          ? "scale-110"
+                          : "scale-100"
+                      }`}
+                    >
+                      {Userhover || chemin === "/Gestion-user" ? (
+                        <LuUsers />
+                      ) : (
+                        <LuUser />
+                      )}
+                    </div>
+
+                    {/* Texte du lien */}
+                    <p className="text-xs">Gestion utilisateur </p>
+                  </div>
+                </Link>
+
+                <Link
+                  href="/Cartecadeau"
+                  className="flex mt-1 w-52 h-9 rounded-lg  items-center space-x-3 transition-all duration-300"
+                  onMouseEnter={() => setCardhover(true)} // Hover
+                  onMouseLeave={() => setCardhover(false)} // Fin du hover
+                >
+                  {/* Indicateur violet */}
+                  <div
+                    className={`w-1 h-5 rounded-r-lg transition-all duration-300 ${
+                      chemin === "/Cartecadeau"
+                        ? "bg-[#8559C5]"
+                        : "bg-transparent"
+                    }`}
+                  ></div>
+
+                  {/* Conteneur principal du contenu */}
+                  <div
+                    className={`flex w-full items-center space-x-3 h-7 transition-all duration-300 ${
+                      Cardhover || chemin === "/Cartecadeau"
+                        ? "bg-[#F5F5F5]"
+                        : ""
+                    }`}
+                  >
+                    {/* Icône du lien */}
+                    <div
+                      className={`text-xl transition-transform duration-300 ${
+                        Cardhover || chemin === "/Cartecadeau"
+                          ? "scale-110"
+                          : "scale-100"
+                      }`}
+                    >
+                      {Cardhover || chemin === "/Cartecadeau" ? (
+                        <TbGiftCardFilled />
+                      ) : (
+                        <TbGiftCard />
+                      )}
+                    </div>
+
+                    {/* Texte du lien */}
+                    <p className="text-xs">Carte cadeau</p>
+                  </div>
                 </Link>
 
                 {/* Gestion des utilisateurs */}
-                <Link href="/Gestion-user">
-                  <li className="flex flex-row space-x-4 pt-1 h-9 text-xl">
-                    {/* Indicateur violet */}
-                    <div
-                      className={`flex mt-1 transition-all duration-500 ${
-                        chemin === "/Gestion-user"
-                          ? "w-1 h-5 bg-[#8559C5] rounded-r-lg"
-                          : "w-1 h-full bg-transparent"
-                      }`}
-                    ></div>
 
-                    {/* Conteneur du lien */}
-                    <div
-                      className={`flex space-x-3 w-52 rounded-lg h-7 pl-2 items-center
-              ${
-                chemin === "/Gestion-user" || Userhover
-                  ? "bg-[#F5F5F5]" // Fond gris actif ou hover
-                  : ""
-              }`}
-                      onMouseEnter={() => setUserhover(true)} // Hover
-                      onMouseLeave={() => setUserhover(false)} // Fin du hover
-                    >
-                      {/* Icône du lien */}
-                      <div
-                        className={`text-xl transition-all duration-500 ${
-                          Userhover || chemin === "/Gestion-user"
-                            ? "scale-110"
-                            : "scale-100"
-                        }`}
-                      >
-                        {Userhover || chemin === "/Gestion-user" ? (
-                          <LuUsers />
-                        ) : (
-                          <LuUser />
-                        )}
-                      </div>
+                <Link
+                  href="/Utilisateurs-pro"
+                  className="flex mt-1 w-52 h-9 rounded-lg  items-center space-x-3 transition-all duration-300"
+                  onMouseEnter={() => setUserStarhover(true)} // Hover
+                  onMouseLeave={() => setUserStarhover(false)} // Fin du hover
+                >
+                  {/* Indicateur violet */}
+                  <div
+                    className={`w-1 h-5 rounded-r-lg transition-all duration-300 ${
+                      chemin === "/Utilisateurs-pro"
+                        ? "bg-[#8559C5]"
+                        : "bg-transparent"
+                    }`}
+                  ></div>
 
-                      {/* Texte du lien */}
-                      <p className="flex mt-1 text-xs">
-                        Gestion des utilisateurs
-                      </p>
-                    </div>
-                  </li>
-                </Link>
-
-                <Link href="/Cartecadeau">
-                  <li
-                    className={`flex flex-row space-x-4 pt-1  h-9 ${style.li_1}  text-xs   `}
+                  {/* Conteneur principal du contenu */}
+                  <div
+                    className={`flex w-full items-center space-x-3 h-7 transition-all duration-300 ${
+                      UserStarhover || chemin === "/Utilisateurs-pro"
+                        ? "bg-[#F5F5F5]"
+                        : ""
+                    }`}
                   >
+                    {/* Icône du lien */}
                     <div
-                      className={`flex mt-1 transition-all duration-500 ${
-                        chemin === "/Cartecadeau"
-                          ? "w-1 h-5 bg-[#8559C5] rounded-r-lg"
-                          : "w-1 h-full bg-transparent"
+                      className={`text-xl transition-transform duration-300 ${
+                        UserStarhover || chemin === "/Utilisateurs-pro"
+                          ? "scale-110"
+                          : "scale-100"
                       }`}
-                    ></div>
-
-                    <div
-                      className={`flex space-x-3 w-52 rounded-lg h-7 pl-2 items-center
-                        ${
-                          chemin === "/Cartecadeau" || Cardhover
-                            ? "bg-[#F5F5F5]" // Fond gris actif ou hover
-                            : ""
-                        }`}
-                      onMouseEnter={() => setCardhover(true)}
-                      onMouseLeave={() => setCardhover(false)}
                     >
-                      {/* Icône du lien */}
-                      <div
-                        className={`text-xl transition-all duration-500 ${
-                          Cardhover || chemin === "/Cartecadeau"
-                            ? "scale-110"
-                            : "scale-100"
-                        }`}
-                      >
-                        {Cardhover || chemin === "/Cartecadeau" ? (
-                          <TbGiftCard />
-                        ) : (
-                          <TbGiftCardFilled />
-                        )}
-                      </div>
-
-                      <p className=" flex mt-1 text-xs">Carte cadeau</p>
+                      {UserStarhover || chemin === "/Utilisateurs-pro" ? (
+                        <RiUserStarFill />
+                      ) : (
+                        <RiUserStarLine />
+                      )}
                     </div>
-                  </li>
+
+                    {/* Texte du lien */}
+                    <p className="text-xs">Utilisateurs Pro</p>
+                  </div>
                 </Link>
 
-                <Link href="/Utilisateurs-pro">
-                  <li
-                    className={`flex flex-row space-x-4 pt-1  h-9 ${style.li_1}  text-xs   `}
+                <Link
+                  href="/Marchands"
+                  className="flex mt-1 w-52 h-9 rounded-lg  items-center space-x-3 transition-all duration-300"
+                  onMouseEnter={() => setScanHover(true)} // Hover
+                  onMouseLeave={() => setScanHover(false)} // Fin du hover
+                >
+                  {/* Indicateur violet */}
+                  <div
+                    className={`w-1 h-5 rounded-r-lg transition-all duration-300 ${
+                      chemin === "/Marchands"
+                        ? "bg-[#8559C5]"
+                        : "bg-transparent"
+                    }`}
+                  ></div>
+
+                  {/* Conteneur principal du contenu */}
+                  <div
+                    className={`flex w-full items-center space-x-3 h-7 transition-all duration-300 ${
+                      ScanHover || chemin === "/Marchands" ? "bg-[#F5F5F5]" : ""
+                    }`}
                   >
+                    {/* Icône du lien */}
                     <div
-                      className={`flex mt-1 transition-all duration-500 ${
-                        chemin === "/Utilisateurs-pro"
-                          ? "w-1 h-5 bg-[#8559C5] rounded-r-lg"
-                          : "w-1 h-full bg-transparent"
+                      className={`text-xl transition-transform duration-300 ${
+                        ScanHover || chemin === "/Marchands"
+                          ? "scale-110"
+                          : "scale-100"
                       }`}
-                    ></div>
-
-                    <div
-                      className={`flex space-x-3 w-52 rounded-lg h-7 pl-2 items-center
-                        ${
-                          chemin === "/Utilisateurs-pro" || UserStarhover
-                            ? "bg-[#F5F5F5]" // Fond gris actif ou hover
-                            : ""
-                        }`}
-                      onMouseEnter={() => setUserStarhover(true)}
-                      onMouseLeave={() => setUserStarhover(false)}
                     >
-                      {/* Icône du lien */}
-                      <div
-                        className={`text-xl transition-all duration-500 ${
-                          UserStarhover || chemin === "/Utilisateurs-pro"
-                            ? "scale-110"
-                            : "scale-100"
-                        }`}
-                      >
-                        {UserStarhover || chemin === "/Utilisateurs-pro" ? (
-                          <RiUserStarFill />
-                        ) : (
-                          <RiUserStarLine />
-                        )}
-                      </div>
-
-                      <p className=" flex mt-1 text-xs">Utilisateurs Pro</p>
+                      {ScanHover || chemin === "/Marchands" ? (
+                        <ScanEye />
+                      ) : (
+                        <ScanLine />
+                      )}
                     </div>
-                  </li>
+
+                    {/* Texte du lien */}
+                    <p className="text-xs">Carte cadeau</p>
+                  </div>
                 </Link>
 
-                <Link href="/Marchands">
-                  <li
-                    className={`flex flex-row space-x-4 pt-1  h-9 ${style.li_1}  text-xs   `}
+                <Link
+                  href="/Switch-agregateurs"
+                  className="flex mt-1 w-52 h-9 rounded-lg  items-center space-x-3 transition-all duration-300"
+                  onMouseEnter={() => setRepHover(true)} // Hover
+                  onMouseLeave={() => setRepHover(false)} // Fin du hover
+                >
+                  {/* Indicateur violet */}
+                  <div
+                    className={`w-1 h-5 rounded-r-lg transition-all duration-300 ${
+                      chemin === "/Switch-agregateurs"
+                        ? "bg-[#8559C5]"
+                        : "bg-transparent"
+                    }`}
+                  ></div>
+
+                  {/* Conteneur principal du contenu */}
+                  <div
+                    className={`flex w-full items-center space-x-3 h-7 transition-all duration-300 ${
+                      RepHover || chemin === "/Switch-agregateurs"
+                        ? "bg-[#F5F5F5]"
+                        : ""
+                    }`}
                   >
+                    {/* Icône du lien */}
                     <div
-                      className={`flex mt-1 transition-all duration-500 ${
-                        chemin === "/Marchands"
-                          ? "w-1 h-5 bg-[#8559C5] rounded-r-lg"
-                          : "w-1 h-full bg-transparent"
+                      className={`text-xl transition-transform duration-300 ${
+                        RepHover || chemin === "/Switch-agregateurs"
+                          ? "scale-110"
+                          : "scale-100"
                       }`}
-                    ></div>
-                    <div
-                      className={`flex space-x-3 w-52 rounded-lg h-7 pl-2 items-center
-                        ${
-                          chemin === "/Marchands" || ScanHover
-                            ? "bg-[#F5F5F5]" // Fond gris actif ou hover
-                            : ""
-                        }`}
-                      onMouseEnter={() => setScanHover(true)}
-                      onMouseLeave={() => setScanHover(false)}
                     >
-                      <div
-                        className={`text-xs transition-all duration-500 ${
-                          ScanHover || isSelected ? "scale-110" : "scale-100"
-                        }`}
-                      >
-                        {ScanHover || isSelected ? (
-                          <ScanEye  />
-                        ) : (
-                          <ScanLine />
-                        )}
-                      </div>
-
-                      <p className=" flex mt-1">Marchands</p>
+                      {RepHover || chemin === "/Switch-agregateurs" ? (
+                        <Repeat />
+                      ) : (
+                        <BookUser />
+                      )}
                     </div>
-                  </li>
+
+                    {/* Texte du lien */}
+                    <p className="text-xs">Switch agregateurs</p>
+                  </div>
                 </Link>
 
-                <Link href="/Switch-agregateurs">
-                  <li
-                    className={`flex flex-row space-x-4 pt-1  h-9 ${style.li_1}  text-xs   `}
+                <Link
+                  href="/Gestion-transactions"
+                  className="flex mt-1 w-52 h-9 rounded-lg  items-center space-x-3 transition-all duration-300"
+                  onMouseEnter={() => settransHover(true)} // Hover
+                  onMouseLeave={() => settransHover(false)} // Fin du hover
+                >
+                  {/* Indicateur violet */}
+                  <div
+                    className={`w-1 h-5 rounded-r-lg transition-all duration-300 ${
+                      chemin === "/Gestion-transactions"
+                        ? "bg-[#8559C5]"
+                        : "bg-transparent"
+                    }`}
+                  ></div>
+
+                  {/* Conteneur principal du contenu */}
+                  <div
+                    className={`flex w-full items-center space-x-3 h-7 transition-all duration-300 ${
+                      transHover || chemin === "/Gestion-transactions"
+                        ? "bg-[#F5F5F5]"
+                        : ""
+                    }`}
                   >
+                    {/* Icône du lien */}
                     <div
-                      className={`flex mt-1 transition-all duration-500 ${
-                        chemin === "/Switch-agregateurs"
-                          ? "w-1 h-5 bg-[#8559C5] rounded-r-lg"
-                          : "w-1 h-full bg-transparent"
+                      className={`text-xl transition-transform duration-300 ${
+                        transHover || chemin === "/Gestion-transactions"
+                          ? "scale-110"
+                          : "scale-100"
                       }`}
-                    ></div>
-                    <div
-                      className={`flex space-x-3 w-52 rounded-lg h-7 pl-2 items-center
-                        ${
-                          chemin === "/Switch-agregateurs" || RepHover
-                            ? "bg-[#F5F5F5]" // Fond gris actif ou hover
-                            : ""
-                        }`}
-                      onMouseEnter={() => setRepHover(true)}
-                      onMouseLeave={() => setRepHover(false)}
                     >
-                      <div className="text-xs">
-                        {RepHover ? <Repeat /> : <BookUser />}
-                      </div>
-                      <p className=" flex mt-1">Switch-agregateurs</p>
+                      {transHover || chemin === "/Gestion-transactions" ? (
+                        <Handshake />
+                      ) : (
+                        <Newspaper />
+                      )}
                     </div>
-                  </li>
+
+                    {/* Texte du lien */}
+                    <p className="text-xs">Switch agregateurs</p>
+                  </div>
                 </Link>
 
-                <Link href="/Gestion-transactions">
-                  <li
-                    className={`flex flex-row space-x-4 pt-1  h-9 ${style.li_1}  text-xs   `}
+                <Link
+                  href="/Parrainage"
+                  className="flex mt-1 w-52 h-9 rounded-lg  items-center space-x-3 transition-all duration-300"
+                  onMouseEnter={() => setparHover(true)} // Hover
+                  onMouseLeave={() => setparHover(false)} // Fin du hover
+                >
+                  {/* Indicateur violet */}
+                  <div
+                    className={`w-1 h-5 rounded-r-lg transition-all duration-300 ${
+                      chemin === "/Parrainage"
+                        ? "bg-[#8559C5]"
+                        : "bg-transparent"
+                    }`}
+                  ></div>
+
+                  {/* Conteneur principal du contenu */}
+                  <div
+                    className={`flex w-full items-center space-x-3 h-7 transition-all duration-300 ${
+                      parHover || chemin === "/Parrainage" ? "bg-[#F5F5F5]" : ""
+                    }`}
                   >
+                    {/* Icône du lien */}
                     <div
-                      className={`flex mt-1 transition-all duration-500 ${
-                        chemin === "/Gestion-transactions"
-                          ? "w-1 h-5 bg-[#8559C5] rounded-r-lg"
-                          : "w-1 h-full bg-transparent"
+                      className={`text-xl transition-transform duration-300 ${
+                        parHover || chemin === "/Parrainage"
+                          ? "scale-110"
+                          : "scale-100"
                       }`}
-                    ></div>
-                    <div
-                      className={`flex space-x-3 w-52 rounded-lg h-7 pl-2 items-center
-                        ${
-                          chemin === "/Gestion-transactions" || transHover
-                            ? "bg-[#F5F5F5]" // Fond gris actif ou hover
-                            : ""
-                        }`}
-                      onMouseEnter={() => settransHover(true)}
-                      onMouseLeave={() => settransHover(false)}
                     >
-                      <div className="text-xs">
-                        {transHover ? <Handshake /> : <Newspaper />}
-                      </div>
-
-                      <p className=" flex mt-1">Gestion transactions</p>
+                      {parHover || chemin === "/Parrainage" ? (
+                        <UserCheck />
+                      ) : (
+                        <User />
+                      )}
                     </div>
-                  </li>
-                </Link>
 
-                <Link href="/Parrainage">
-                  <li
-                    className={`flex flex-row space-x-4 pt-1  h-9 ${style.li_1}  text-xs   `}
-                  >
-                    <div
-                      className={`flex mt-1 transition-all duration-500 ${
-                        chemin === "/Parrainage"
-                          ? "w-1 h-5 bg-[#8559C5] rounded-r-lg"
-                          : "w-1 h-full bg-transparent"
-                      }`}
-                    ></div>
-                    <div
-                      className={`flex space-x-3 w-52 rounded-lg h-7 pl-2 items-center
-                        ${
-                          chemin === "/Parrainage" || parHover
-                            ? "bg-[#F5F5F5]" // Fond gris actif ou hover
-                            : ""
-                        }`}
-                      onMouseEnter={() => setparHover(true)}
-                      onMouseLeave={() => setparHover(false)}
-                    >
-                      <div className="text-xs">
-                        {parHover ? <UserCheck /> : <User />}
-                      </div>
-
-                      <p className=" flex mt-1">Parrainage</p>
-                    </div>
-                  </li>
+                    {/* Texte du lien */}
+                    <p className="text-xs">Parrainage</p>
+                  </div>
                 </Link>
+                {/* Parrainage fin */}
               </ul>
             </div>
 
@@ -422,125 +463,180 @@ export default function Dashboard() {
                 <u>A</u>utre
               </p>
               <ul className={`${style.list_2}    pt-1`}>
-                <Link href="/Administration">
-                  <li
-                    className={`flex flex-row space-x-4 pt-1  h-9 ${style.li_1}  text-xs   `}
+                {/* Administration debut */}
+                <Link
+                  href="/administration"
+                  className="flex mt-1 w-52 h-9 rounded-lg  items-center space-x-3 transition-all duration-300"
+                  onMouseEnter={() => setAdminHover(true)} // Hover
+                  onMouseLeave={() => setAdminHover(false)} // Fin du hover
+                >
+                  {/* Indicateur violet */}
+                  <div
+                    className={`w-1 h-5 rounded-r-lg transition-all duration-300 ${
+                      chemin === "/administration"
+                        ? "bg-[#8559C5]"
+                        : "bg-transparent"
+                    }`}
+                  ></div>
+
+                  {/* Conteneur principal du contenu */}
+                  <div
+                    className={`flex w-full items-center space-x-3 h-7 transition-all duration-300 ${
+                      AdminHover || chemin === "/administration"
+                        ? "bg-[#F5F5F5]"
+                        : ""
+                    }`}
                   >
+                    {/* Icône du lien */}
                     <div
-                      className={`flex mt-1 h-7 ${
-                        chemin === "/Administration"
-                          ? "w-1 h-5 bg-[#8559C5] rounded-r-lg"
-                          : "bg-transparent w-1"
+                      className={`text-xl transition-transform duration-300 ${
+                        AdminHover || chemin === "/administration"
+                          ? "scale-110"
+                          : "scale-100"
                       }`}
-                    ></div>
-                    {/* n'oublie pas de mettre les effets */}
-
-                    <div
-                      className={`flex space-x-3 w-52 rounded-lg h-7 pl-2 items-center
-                        ${
-                          chemin === "/Administration" || AdminHover
-                            ? "bg-[#F5F5F5]" // Fond gris actif ou hover
-                            : ""
-                        }`}
-                      onMouseEnter={() => setAdminHover(true)}
-                      onMouseLeave={() => setAdminHover(false)}
                     >
-                      <div className="text-xs">
-                        {AdminHover ? <Briefcase /> : <BriefcaseConveyorBelt />}
-                      </div>
-
-                      <p className=" flex mt-1">Administration</p>
+                      {AdminHover || chemin === "/administration" ? (
+                        <Briefcase />
+                      ) : (
+                        <BriefcaseConveyorBelt />
+                      )}
                     </div>
-                  </li>
+
+                    {/* Texte du lien */}
+                    <p className="text-xs">Administration</p>
+                  </div>
                 </Link>
-                <Link href="/gestion_bugs">
-                  <li
-                    className={`flex flex-row space-x-4 pt-1  h-9 ${style.li_1}  text-xs   `}
+                {/*Administration fin */}
+                {/* Support fin */}
+                <Link
+                  href="/support"
+                  className="flex mt-1 w-52 h-9 rounded-lg  items-center space-x-3 transition-all duration-300"
+                  onMouseEnter={() => setSupHover(true)} // Hover
+                  onMouseLeave={() => setSupHover(false)} // Fin du hover
+                >
+                  {/* Indicateur violet */}
+                  <div
+                    className={`w-1 h-5 rounded-r-lg transition-all duration-300 ${
+                      chemin === "/support" ? "bg-[#8559C5]" : "bg-transparent"
+                    }`}
+                  ></div>
+
+                  {/* Conteneur principal du contenu */}
+                  <div
+                    className={`flex w-full items-center space-x-3 h-7 transition-all duration-300 ${
+                      SupHover || chemin === "/support" ? "bg-[#F5F5F5]" : ""
+                    }`}
                   >
+                    {/* Icône du lien */}
                     <div
-                      className={`flex mt-1 h-7 ${
-                        chemin === "/gestion_bugs"
-                          ? "w-1 h-5 bg-[#8559C5] rounded-r-lg"
-                          : "bg-transparent w-1"
+                      className={`text-xl transition-transform duration-300 ${
+                        SupHover || chemin === "/support"
+                          ? "scale-110"
+                          : "scale-100"
                       }`}
-                    ></div>
-
-                    <div
-                      className={`flex space-x-3 w-52 rounded-lg h-7 pl-2 items-center
-                        ${
-                          chemin === "/gestion_bugs" || SupHover
-                            ? "bg-[#F5F5F5]" // Fond gris actif ou hover
-                            : ""
-                        }`}
-                      onMouseEnter={() => setSupHover(true)}
-                      onMouseLeave={() => setSupHover(false)}
                     >
-                      <div className="text-xs">
-                        {SupHover ? <FileCog /> : <FileCheck2 />}
-                      </div>
-
-                      <p className=" flex mt-1">Support</p>
+                      {SupHover || chemin === "/support" ? (
+                        <FileCog />
+                      ) : (
+                        <FileCheck2 />
+                      )}
                     </div>
-                  </li>
+
+                    {/* Texte du lien */}
+                    <p className="text-xs">Support</p>
+                  </div>
                 </Link>
-                <Link href="/Support">
-                  <li
-                    className={`flex flex-row space-x-4 pt-1  h-9 ${style.li_1}  text-xs   `}
+                {/* Support fin */}
+
+                {/* Gestion des bug fin */}
+                <Link
+                  href="/gestion_bugs"
+                  className="flex mt-1 w-52 h-9 rounded-lg  items-center space-x-3 transition-all duration-300"
+                  onMouseEnter={() => setbugsHover(true)} // Hover
+                  onMouseLeave={() => setbugsHover(false)} // Fin du hover
+                >
+                  {/* Indicateur violet */}
+                  <div
+                    className={`w-1 h-5 rounded-r-lg transition-all duration-300 ${
+                      chemin === "/gestion_bugs"
+                        ? "bg-[#8559C5]"
+                        : "bg-transparent"
+                    }`}
+                  ></div>
+
+                  {/* Conteneur principal du contenu */}
+                  <div
+                    className={`flex w-full items-center space-x-3 h-7 transition-all duration-300 ${
+                      bugsHover || chemin === "/gestion_bugs"
+                        ? "bg-[#F5F5F5]"
+                        : ""
+                    }`}
                   >
+                    {/* Icône du lien */}
                     <div
-                      className={`flex mt-1 h-7 ${
-                        chemin === "/Support"
-                          ? "w-1 h-5 bg-[gestion_bugs#8559C5] rounded-r-lg"
-                          : "bg-transparent w-1"
+                      className={`text-xl transition-transform duration-300 ${
+                        bugsHover || chemin === "/gestion_bugs"
+                          ? "scale-110"
+                          : "scale-100"
                       }`}
-                    ></div>
-                    <div
-                      className={`flex space-x-3 w-52 rounded-lg h-7 pl-2 items-center
-                        ${
-                          chemin === "/Support" || SupportHover
-                            ? "bg-[#F5F5F5]" // Fond gris actif ou hover
-                            : ""
-                        }`}
-                      onMouseEnter={() => setSupportHover(true)}
-                      onMouseLeave={() => setSupportHover(false)}
                     >
-                      <div className="text-xs">
-                        {SupportHover ? <MonitorCog /> : <MonitorCheck />}
-                      </div>
-
-                      <p className=" flex mt-1">Gestion des bug</p>
+                      {bugsHover || chemin === "/gestion_bugs" ? (
+                        <MonitorCog />
+                      ) : (
+                        <MonitorCheck />
+                      )}
                     </div>
-                  </li>
+
+                    {/* Texte du lien */}
+                    <p className="text-xs">Gestion Des Bugs</p>
+                  </div>
                 </Link>
-                <Link href="/analyse_donnees">
-                  <li
-                    className={`flex flex-row space-x-4 pt-1  h-9 ${style.li_1}  text-xs   `}
+                {/* Gestion des bug fin */}
+
+                {/* analyse_donnees */}
+                <Link
+                  href="/analyse_donnees"
+                  className="flex mt-1 w-52 h-9 rounded-lg  items-center space-x-3 transition-all duration-300"
+                  onMouseEnter={() => setAnalyseHover(true)} // Hover
+                  onMouseLeave={() => setAnalyseHover(false)} // Fin du hover
+                >
+                  {/* Indicateur violet */}
+                  <div
+                    className={`w-1 h-5 rounded-r-lg transition-all duration-300 ${
+                      chemin === "/analyse_donnees"
+                        ? "bg-[#8559C5]"
+                        : "bg-transparent"
+                    }`}
+                  ></div>
+
+                  {/* Conteneur principal du contenu */}
+                  <div
+                    className={`flex w-full items-center space-x-3 h-7 transition-all duration-300 ${
+                      AnalyseHover || chemin === "/analyse_donnees"
+                        ? "bg-[#F5F5F5]"
+                        : ""
+                    }`}
                   >
+                    {/* Icône du lien */}
                     <div
-                      className={`flex mt-1 h-7 ${
-                        chemin === "/analyse_donnees"
-                          ? "w-1 h-5 bg-[gestion_bugs#8559C5] rounded-r-lg"
-                          : "bg-transparent w-1"
+                      className={`text-xl transition-transform duration-300 ${
+                        AnalyseHover || chemin === "/analyse_donnees"
+                          ? "scale-110"
+                          : "scale-100"
                       }`}
-                    ></div>
-                    <div
-                      className={`flex space-x-3 w-52 rounded-lg h-7 pl-2 items-center
-                        ${
-                          chemin === "/analyse_donnees" || AnalyseHover
-                            ? "bg-[#F5F5F5]" // Fond gris actif ou hover
-                            : ""
-                        }`}
-                      onMouseEnter={() => setAnalyseHover(true)}
-                      onMouseLeave={() => setAnalyseHover(false)}
                     >
-                      <div className="text-xs">
-                        {AnalyseHover ? <ChartScatter /> : <ChartColumn />}
-                      </div>
-
-                      <p className=" flex mt-1">Analyse des données</p>
+                      {AnalyseHover || chemin === "/analyse_donnees" ? (
+                        <ChartScatter />
+                      ) : (
+                        <ChartColumn />
+                      )}
                     </div>
-                  </li>
+
+                    {/* Texte du lien */}
+                    <p className="text-xs">Gestion Des Bugs</p>
+                  </div>
                 </Link>
+                {/* analyse_donnees */}
               </ul>
             </div>
           </div>
@@ -596,13 +692,3 @@ export default function Dashboard() {
     </>
   );
 }
-
-
-
-
-
-
-
-
-
-

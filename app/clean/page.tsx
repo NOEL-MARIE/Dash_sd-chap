@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 const defmot = () => {
   return (
     <>
@@ -26,7 +27,7 @@ const defmot = () => {
             
 
             <button className="hover:bg-purple-800 hover:cursor-default text-white justify-center items-center flex rounded-lg mt-4 bg-purple-600 h-10 font-WorkSans transition duration-1000">
-              <a href="/">Retour à la connexion</a>
+              <Link href="/">Retour à la connexion</Link>
             </button>
 
             

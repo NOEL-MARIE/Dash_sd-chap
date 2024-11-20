@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const psswd = () => {
   return (
@@ -26,21 +27,21 @@ const psswd = () => {
 
             <p className="text-xs font-WorkSans pt-3 text-center">
               Vous n'avez pas reçu l'e-mail ?
-              <a
+              <Link
                 href="/defmot"
                 className="text-[#633DA5]
 "
               >
                 Cliquer pour renvoyer
-              </a>
+              </Link>
             </p>
 
             <button className=" border hover:bg-[#EEEEEE]  hover:cursor-default text-slate-950 justify-center items-center flex rounded-lg mt-4 h-10 font-WorkSans transition duration-1000">
-              <a href="/">Retour à la connexion</a>
+              <Link href="/">Retour à la connexion</Link>
             </button>
 
             <button className="hover:bg-purple-800 hover:cursor-default text-white justify-center items-center flex rounded-lg mt-4 bg-purple-600 h-10 font-WorkSans transition duration-1000">
-              <a href="/component">DASHBOARD</a>
+              <Link href="/component">DASHBOARD</Link>
             </button>
           </div>
         </main>

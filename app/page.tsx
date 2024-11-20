@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const PConnexion = () => {
   // États pour les champs et les messages d'erreur individuels
@@ -130,7 +131,7 @@ const PConnexion = () => {
 
             {/* Lien vers mot de passe oublié */}
             <button className="hover:bg-purple-100 text-purple-600 justify-center items-center flex rounded-lg mt-4 h-10 font-WorkSans transition duration-1000">
-              <a href="/pasoub">Mot de passe oublié ?</a>
+              <Link href="/pasoub">Mot de passe oublié ?</Link>
             </button>
 
             {/* Pied de page */}
