@@ -643,7 +643,7 @@ export default function Dashboard() {
 
           {/*======================================================================= DEBUT FOOTER =================================================================================*/}
           <div className="lg:h-20 h-20 max-sm:flex max-sm:items-center max-sm:justify-center   lg:flex flex lg:flex-row flex-row">
-            <footer className="lg:flex lg:justify-center border-t-2 hover:border-[#CCCCCC] md:w-40 lg:ml-6 lg:w-64  max-sm:ml-5 max-sm:m  ">
+            <footer className="lg:flex lg:justify-center border-t-2 hover:border-[#CCCCCC] md:w-40 lg:ml-6 lg:w-64 lg:mt-72  max-sm:ml-5 max-sm:m  ">
               <div
                 className={`lg:h-20 lg:space-x-2 lg:ml-5 pt-3 mb-5 max-sm:w-40 lg:flex lg:flex-row items-center  `}
               >

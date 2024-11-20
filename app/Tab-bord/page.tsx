@@ -11,7 +11,7 @@ export default function CarteCadeau(
       <Dashboard />
 
       {/* Conteneur fixe pour la section */}
-      <div className="ml-96 fixed h-full">
+      <div className="ml-80 fixed w-full h-full bg-[#f1f0f0]">
         <main className="w-full h-full">
           {/* Section principale de contenu */}
           <div className=" w-full h-full">
