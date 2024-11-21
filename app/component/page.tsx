@@ -113,9 +113,7 @@ export default function Dashboard() {
 
           <div className=" flex flex-col">
             <div className="flex flex-col mt-2 ">
-              <p className="font-WorkSans text-xs ml-3 md:ml-7 ">
-                Principal
-              </p>
+              <p className="font-WorkSans text-xs ml-3 md:ml-7 ">Principal</p>
               <ul className={``}>
                 <Link
                   href="/Tab-bord"
@@ -145,7 +143,7 @@ export default function Dashboard() {
                       }`}
                     >
                       {DashHover || chemin === "/Tab-bord" ? (
-                        <TbLayoutDashboardFilled className="text-[#8559C5]"/>
+                        <TbLayoutDashboardFilled className="text-[#8559C5]" />
                       ) : (
                         <TbLayoutDashboard />
                       )}
@@ -190,7 +188,7 @@ export default function Dashboard() {
                       {Userhover || chemin === "/Gestion-user" ? (
                         <LuUsers className="text-[#8559C5]" />
                       ) : (
-                        <LuUser  />
+                        <LuUser />
                       )}
                     </div>
 
@@ -278,7 +276,7 @@ export default function Dashboard() {
                       {UserStarhover || chemin === "/Utilisateurs-pro" ? (
                         <RiUserStarFill className="text-[#8559C5]" />
                       ) : (
-                        <RiUserStarLine  />
+                        <RiUserStarLine />
                       )}
                     </div>
 
@@ -319,12 +317,12 @@ export default function Dashboard() {
                       {ScanHover || chemin === "/Marchands" ? (
                         <ScanEye className="text-[#8559C5]" />
                       ) : (
-                        <ScanLine  />
+                        <ScanLine />
                       )}
                     </div>
 
                     {/* Texte du lien */}
-                    <p className="text-xs">Carte cadeau</p>
+                    <p className="text-xs">Marchands</p>
                   </div>
                 </Link>
 
@@ -362,7 +360,7 @@ export default function Dashboard() {
                       {RepHover || chemin === "/Switch-agregateurs" ? (
                         <Repeat className="text-[#8559C5]" />
                       ) : (
-                        <BookUser  />
+                        <BookUser />
                       )}
                     </div>
 
@@ -410,7 +408,7 @@ export default function Dashboard() {
                     </div>
 
                     {/* Texte du lien */}
-                    <p className="text-xs">Switch agregateurs</p>
+                    <p className="text-xs">Gestion transactions</p>
                   </div>
                 </Link>
 
@@ -538,7 +536,7 @@ export default function Dashboard() {
                       {SupHover || chemin === "/support" ? (
                         <FileCog className="text-[#8559C5]" />
                       ) : (
-                        <FileCheck2  />
+                        <FileCheck2 />
                       )}
                     </div>
 
@@ -581,7 +579,7 @@ export default function Dashboard() {
                       }`}
                     >
                       {bugsHover || chemin === "/gestion_bugs" ? (
-                        <MonitorCog className="text-[#8559C5]"/>
+                        <MonitorCog className="text-[#8559C5]" />
                       ) : (
                         <MonitorCheck />
                       )}
@@ -633,7 +631,7 @@ export default function Dashboard() {
                     </div>
 
                     {/* Texte du lien */}
-                    <p className="text-xs">Gestion Des Bugs</p>
+                    <p className="text-xs">Analyse des données</p>
                   </div>
                 </Link>
                 {/* analyse_donnees */}
