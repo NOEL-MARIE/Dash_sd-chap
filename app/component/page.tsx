@@ -43,6 +43,7 @@ export default function Dashboard() {
   const [DashHover, setDashHover] = useState(false); // Pour gérer l'effet de hover
   const [isSelected, setIsSelected] = useState(false); // Pour suivre l'état du lien sélectionné
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const handleClick = () => {
     setIsSelected(true); // Marquer le lien comme sélectionné après un clic
   };
@@ -111,14 +112,14 @@ export default function Dashboard() {
           {/*======================================================================= DEBUT MENU PRINCIPAL =================================================================================*/}
 
           <div className=" flex flex-col">
-            <div className="flex flex-col mt-5 ">
-              <p className="font-WorkSans text-xs ml-7 md:ml-7 ">
-                <u>P</u>rincipal
+            <div className="flex flex-col mt-2 ">
+              <p className="font-WorkSans text-xs ml-3 md:ml-7 ">
+                Principal
               </p>
-              <ul className={`   pt-1    `}>
+              <ul className={``}>
                 <Link
                   href="/Tab-bord"
-                  className="flex mt-1 w-52 h-9 rounded-lg  items-center space-x-3 transition-all duration-300"
+                  className="flex  w-52 h-9 rounded-lg  items-center space-x-3 transition-all duration-300"
                   onMouseEnter={() => setDashHover(true)} // Hover
                   onMouseLeave={() => setDashHover(false)} // Fin du hover
                 >
@@ -137,14 +138,14 @@ export default function Dashboard() {
                   >
                     {/* Icône du lien */}
                     <div
-                      className={`text-xl transition-transform duration-300 ${
+                      className={`text-2xl transition-transform duration-300 ${
                         DashHover || chemin === "/Tab-bord"
                           ? "scale-110"
                           : "scale-100"
                       }`}
                     >
                       {DashHover || chemin === "/Tab-bord" ? (
-                        <TbLayoutDashboardFilled />
+                        <TbLayoutDashboardFilled className="text-[#8559C5]"/>
                       ) : (
                         <TbLayoutDashboard />
                       )}
@@ -180,16 +181,16 @@ export default function Dashboard() {
                   >
                     {/* Icône du lien */}
                     <div
-                      className={`text-xl transition-transform duration-300 ${
+                      className={`text-2xl transition-transform duration-300 ${
                         Userhover || chemin === "/Gestion-user"
                           ? "scale-110"
                           : "scale-100"
                       }`}
                     >
                       {Userhover || chemin === "/Gestion-user" ? (
-                        <LuUsers />
+                        <LuUsers className="text-[#8559C5]" />
                       ) : (
-                        <LuUser />
+                        <LuUser  />
                       )}
                     </div>
 
@@ -223,14 +224,14 @@ export default function Dashboard() {
                   >
                     {/* Icône du lien */}
                     <div
-                      className={`text-xl transition-transform duration-300 ${
+                      className={`text-2xl transition-transform duration-300 ${
                         Cardhover || chemin === "/Cartecadeau"
                           ? "scale-110"
                           : "scale-100"
                       }`}
                     >
                       {Cardhover || chemin === "/Cartecadeau" ? (
-                        <TbGiftCardFilled />
+                        <TbGiftCardFilled className="text-[#8559C5]" />
                       ) : (
                         <TbGiftCard />
                       )}
@@ -268,16 +269,16 @@ export default function Dashboard() {
                   >
                     {/* Icône du lien */}
                     <div
-                      className={`text-xl transition-transform duration-300 ${
+                      className={`text-2xl transition-transform duration-300 ${
                         UserStarhover || chemin === "/Utilisateurs-pro"
                           ? "scale-110"
                           : "scale-100"
                       }`}
                     >
                       {UserStarhover || chemin === "/Utilisateurs-pro" ? (
-                        <RiUserStarFill />
+                        <RiUserStarFill className="text-[#8559C5]" />
                       ) : (
-                        <RiUserStarLine />
+                        <RiUserStarLine  />
                       )}
                     </div>
 
@@ -309,16 +310,16 @@ export default function Dashboard() {
                   >
                     {/* Icône du lien */}
                     <div
-                      className={`text-xl transition-transform duration-300 ${
+                      className={`text-2xl transition-transform duration-300 ${
                         ScanHover || chemin === "/Marchands"
                           ? "scale-110"
                           : "scale-100"
                       }`}
                     >
                       {ScanHover || chemin === "/Marchands" ? (
-                        <ScanEye />
+                        <ScanEye className="text-[#8559C5]" />
                       ) : (
-                        <ScanLine />
+                        <ScanLine  />
                       )}
                     </div>
 
@@ -352,16 +353,16 @@ export default function Dashboard() {
                   >
                     {/* Icône du lien */}
                     <div
-                      className={`text-xl transition-transform duration-300 ${
+                      className={`text-2xl transition-transform duration-300 ${
                         RepHover || chemin === "/Switch-agregateurs"
                           ? "scale-110"
                           : "scale-100"
                       }`}
                     >
                       {RepHover || chemin === "/Switch-agregateurs" ? (
-                        <Repeat />
+                        <Repeat className="text-[#8559C5]" />
                       ) : (
-                        <BookUser />
+                        <BookUser  />
                       )}
                     </div>
 
@@ -395,14 +396,14 @@ export default function Dashboard() {
                   >
                     {/* Icône du lien */}
                     <div
-                      className={`text-xl transition-transform duration-300 ${
+                      className={`text-2xl transition-transform duration-300 ${
                         transHover || chemin === "/Gestion-transactions"
                           ? "scale-110"
                           : "scale-100"
                       }`}
                     >
                       {transHover || chemin === "/Gestion-transactions" ? (
-                        <Handshake />
+                        <Handshake className="text-[#8559C5]" />
                       ) : (
                         <Newspaper />
                       )}
@@ -436,14 +437,14 @@ export default function Dashboard() {
                   >
                     {/* Icône du lien */}
                     <div
-                      className={`text-xl transition-transform duration-300 ${
+                      className={`text-2xl transition-transform duration-300 ${
                         parHover || chemin === "/Parrainage"
                           ? "scale-110"
                           : "scale-100"
                       }`}
                     >
                       {parHover || chemin === "/Parrainage" ? (
-                        <UserCheck />
+                        <UserCheck className="text-[#8559C5]" />
                       ) : (
                         <User />
                       )}
@@ -488,14 +489,14 @@ export default function Dashboard() {
                   >
                     {/* Icône du lien */}
                     <div
-                      className={`text-xl transition-transform duration-300 ${
+                      className={`text-2xl transition-transform duration-300 ${
                         AdminHover || chemin === "/administration"
                           ? "scale-110"
                           : "scale-100"
                       }`}
                     >
                       {AdminHover || chemin === "/administration" ? (
-                        <Briefcase />
+                        <Briefcase className="text-[#8559C5]" />
                       ) : (
                         <BriefcaseConveyorBelt />
                       )}
@@ -528,16 +529,16 @@ export default function Dashboard() {
                   >
                     {/* Icône du lien */}
                     <div
-                      className={`text-xl transition-transform duration-300 ${
+                      className={`text-2xl transition-transform duration-300 ${
                         SupHover || chemin === "/support"
                           ? "scale-110"
                           : "scale-100"
                       }`}
                     >
                       {SupHover || chemin === "/support" ? (
-                        <FileCog />
+                        <FileCog className="text-[#8559C5]" />
                       ) : (
-                        <FileCheck2 />
+                        <FileCheck2  />
                       )}
                     </div>
 
@@ -573,14 +574,14 @@ export default function Dashboard() {
                   >
                     {/* Icône du lien */}
                     <div
-                      className={`text-xl transition-transform duration-300 ${
+                      className={`text-2xl transition-transform duration-300 ${
                         bugsHover || chemin === "/gestion_bugs"
                           ? "scale-110"
                           : "scale-100"
                       }`}
                     >
                       {bugsHover || chemin === "/gestion_bugs" ? (
-                        <MonitorCog />
+                        <MonitorCog className="text-[#8559C5]"/>
                       ) : (
                         <MonitorCheck />
                       )}
@@ -618,14 +619,14 @@ export default function Dashboard() {
                   >
                     {/* Icône du lien */}
                     <div
-                      className={`text-xl transition-transform duration-300 ${
+                      className={`text-2xl transition-transform duration-300 ${
                         AnalyseHover || chemin === "/analyse_donnees"
                           ? "scale-110"
                           : "scale-100"
                       }`}
                     >
                       {AnalyseHover || chemin === "/analyse_donnees" ? (
-                        <ChartScatter />
+                        <ChartScatter className="text-[#8559C5]" />
                       ) : (
                         <ChartColumn />
                       )}
@@ -667,13 +668,13 @@ export default function Dashboard() {
                     </p>
                   </div>
                   <div
-                    className="text-xl cursor-pointer transition-all ease-linear duration-100"
+                    className="text-2xl cursor-pointer transition-all ease-linear duration-100"
                     onMouseEnter={() => setHovered(true)}
                     onMouseLeave={() => setHovered(false)}
                   >
                     <Link
                       href="/"
-                      className={`text-xl transition-all duration-500 ${
+                      className={`text-2xl transition-all duration-500 ${
                         Hovered || isSelected ? "scale-110" : "scale-100"
                       }`}
                     >
