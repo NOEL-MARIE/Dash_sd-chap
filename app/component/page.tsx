@@ -73,7 +73,7 @@ export default function Dashboard() {
     <>
       {/* {`w-96 h-full max-sm:w-56 max-sm:transition-all max-sm:duration-1000 fixed ${style.dash} max-lg:w-56 max-lg:transition-all max-lg:duration-1000`} */}
 
-      <main className="w-96 h-full">
+      <main className="w-96  h-full">
         <div
           className={` ${style.dash}  fixed  border-r-2 hover:border-[#CCCCCC]  lg:w-80 max-sm:w-52 h-full  
         max-md:w-40 md:h-full`}
@@ -113,93 +113,103 @@ export default function Dashboard() {
 
           <div className=" flex flex-col">
             <div className="flex flex-col mt-2 ">
-              <p className="font-WorkSans text-xs ml-3 md:ml-7 ">Principal</p>
+              <p className="font-WorkSans text-xs  md:ml-4 ">Principal</p>
               <ul className={``}>
-                <Link
-                  href="/Tab-bord"
-                  className="flex  w-52 h-9 rounded-lg  items-center space-x-3 transition-all duration-300"
-                  onMouseEnter={() => setDashHover(true)} // Hover
-                  onMouseLeave={() => setDashHover(false)} // Fin du hover
-                >
-                  {/* Indicateur violet */}
-                  <div
-                    className={`w-1 h-5 rounded-r-lg transition-all duration-300 ${
-                      chemin === "/Tab-bord" ? "bg-[#8559C5]" : "bg-transparent"
-                    }`}
-                  ></div>
-
-                  {/* Conteneur principal du contenu */}
-                  <div
-                    className={`flex w-full items-center space-x-3 h-7 transition-all duration-300 ${
-                      DashHover || chemin === "/Tab-bord" ? "bg-[#F5F5F5]" : ""
-                    }`}
+                <li>
+                  {" "}
+                  <Link
+                    href="/Tab-bord"
+                    className="flex   w-52 mt-1 rounded-lg  items-center space-x-3 transition-all duration-300"
+                    onMouseEnter={() => setDashHover(true)} // Hover
+                    onMouseLeave={() => setDashHover(false)} // Fin du hover
                   >
-                    {/* Icône du lien */}
+                    {/* Indicateur violet */}
                     <div
-                      className={`text-2xl transition-transform duration-300 ${
+                      className={`w-1 h-5 rounded-r-lg transition-all duration-300 ${
+                        chemin === "/Tab-bord"
+                          ? "bg-[#8559C5]"
+                          : "bg-transparent"
+                      }`}
+                    ></div>
+
+                    {/* Conteneur principal du contenu des liens */}
+                    <div
+                      className={`flex w-full items-center space-x-3 h-7 transition-all duration-300 ${
                         DashHover || chemin === "/Tab-bord"
-                          ? "scale-110"
-                          : "scale-100"
+                          ? "bg-[#F5F5F5]"
+                          : ""
                       }`}
                     >
-                      {DashHover || chemin === "/Tab-bord" ? (
-                        <TbLayoutDashboardFilled className="text-[#8559C5]" />
-                      ) : (
-                        <TbLayoutDashboard />
-                      )}
+                      {/* Icône du lien */}
+                      <div
+                        className={`text-2xl transition-transform duration-300 ${
+                          DashHover || chemin === "/Tab-bord"
+                            ? "scale-110"
+                            : "scale-100"
+                        }`}
+                      >
+                        {DashHover || chemin === "/Tab-bord" ? (
+                          <TbLayoutDashboardFilled className="text-[#8559C5]" />
+                        ) : (
+                          <TbLayoutDashboard />
+                        )}
+                      </div>
+
+                      {/* Texte du lien */}
+                      <p className="text-xs">Tableau de bord</p>
                     </div>
+                  </Link>
+                </li>
 
-                    {/* Texte du lien */}
-                    <p className="text-xs">Tableau de bord</p>
-                  </div>
-                </Link>
-
-                <Link
-                  href="/Gestion-user"
-                  className="flex mt-1 w-52 h-9 rounded-lg  items-center space-x-3 transition-all duration-300"
-                  onMouseEnter={() => setUserhover(true)} // Hover
-                  onMouseLeave={() => setUserhover(false)} // Fin du hover
-                >
-                  {/* Indicateur violet */}
-                  <div
-                    className={`w-1 h-5 rounded-r-lg transition-all duration-300 ${
-                      chemin === "/Gestion-user"
-                        ? "bg-[#8559C5]"
-                        : "bg-transparent"
-                    }`}
-                  ></div>
-
-                  {/* Conteneur principal du contenu */}
-                  <div
-                    className={`flex w-full items-center space-x-3 h-7 transition-all duration-300 ${
-                      Userhover || chemin === "/Gestion-user"
-                        ? "bg-[#F5F5F5]"
-                        : ""
-                    }`}
+                <li>
+                  {" "}
+                  <Link
+                    href="/Gestion-user"
+                    className="flex mt-1 w-52  rounded-lg  items-center space-x-3 transition-all duration-300"
+                    onMouseEnter={() => setUserhover(true)} // Hover
+                    onMouseLeave={() => setUserhover(false)} // Fin du hover
                   >
-                    {/* Icône du lien */}
+                    {/* Indicateur violet */}
                     <div
-                      className={`text-2xl transition-transform duration-300 ${
+                      className={`w-1 h-5 rounded-r-lg transition-all duration-300 ${
+                        chemin === "/Gestion-user"
+                          ? "bg-[#8559C5]"
+                          : "bg-transparent"
+                      }`}
+                    ></div>
+
+                    {/* Conteneur principal du contenu */}
+                    <div
+                      className={`flex w-full items-center space-x-3 h-7 transition-all duration-300 ${
                         Userhover || chemin === "/Gestion-user"
-                          ? "scale-110"
-                          : "scale-100"
+                          ? "bg-[#F5F5F5]"
+                          : ""
                       }`}
                     >
-                      {Userhover || chemin === "/Gestion-user" ? (
-                        <LuUsers className="text-[#8559C5]" />
-                      ) : (
-                        <LuUser />
-                      )}
-                    </div>
+                      {/* Icône du lien */}
+                      <div
+                        className={`text-2xl transition-transform duration-300 ${
+                          Userhover || chemin === "/Gestion-user"
+                            ? "scale-110"
+                            : "scale-100"
+                        }`}
+                      >
+                        {Userhover || chemin === "/Gestion-user" ? (
+                          <LuUsers className="text-[#8559C5]" />
+                        ) : (
+                          <LuUser />
+                        )}
+                      </div>
 
-                    {/* Texte du lien */}
-                    <p className="text-xs">Gestion utilisateur </p>
-                  </div>
-                </Link>
+                      {/* Texte du lien */}
+                      <p className="text-xs">Gestion utilisateur </p>
+                    </div>
+                  </Link>
+                </li>
 
                 <Link
                   href="/Cartecadeau"
-                  className="flex mt-1 w-52 h-9 rounded-lg  items-center space-x-3 transition-all duration-300"
+                  className="flex  w-52 mt-1  rounded-lg  items-center space-x-3 transition-all duration-300"
                   onMouseEnter={() => setCardhover(true)} // Hover
                   onMouseLeave={() => setCardhover(false)} // Fin du hover
                 >

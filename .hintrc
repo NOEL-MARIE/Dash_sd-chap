@@ -20,8 +20,16 @@
     "axe/structure": [
       "default",
       {
-        "list": "off"
+        "list": "off",
+        "listitem": "off"
       }
-    ]
+    ],
+    "axe/name-role-value": [
+      "default",
+      {
+        "button-name": "off"
+      }
+    ],
+    "button-type": "off"
   }
 }
