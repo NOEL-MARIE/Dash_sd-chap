@@ -1,0 +1,72 @@
+"use client";
+
+import { useState } from "react";
+
+export default function PhoneInputWithCountry() {
+  // Liste des pays et indicateurs
+  const countrie = [
+    { name: "Côte d'Ivoire", code: "+225" },
+    { name: "Mali", code: "+223" },
+    { name: "Burkina Faso", code: "+226" },
+    { name: "Ghana", code: "+233" },
+    { name: "Liberia", code: "+231" },
+    { name: "Guinée", code: "+224" },
+  ];
+
+  // État du pays sélectionné
+  const [selectedCountry, setSelectedCountry] = useState(countrie[0]);
+
+  // État du numéro de téléphone
+  const [phoneNumber, setPhoneNumber] = useState("");
+
+  // Gestion du changement de pays
+  const handleCountryChange = (event) => {
+    const selected = countrie.find(
+      (country) => country.name === event.target.value
+    );
+    setSelectedCountry(selected);
+  };
+
+  // Gestion du changement du numéro de téléphone
+  const handlePhoneChange = (event) => {
+    setPhoneNumber(event.target.value);
+  };
+
+  return (
+    <div className="flex flex-col items-center justify-center h-screen bg-gray-100 p-4">
+      <label htmlFor="country-select" className="mb-2 text-lg font-semibold">
+        Sélectionnez un pays :
+      </label>
+      <select
+        id="country-select"
+        value={selectedCountry.name}
+        onChange={handleCountryChange}
+        className="p-2 mb-4 border border-gray-300 rounded shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+      >
+        {countrie.map((country) => (
+          <option key={country.code} value={country.name}>
+            {country.name}
+          </option>
+        ))}
+      </select>
+      <div className="flex items-center border border-gray-300 rounded shadow-md focus-within:ring-2 focus-within:ring-blue-500">
+        <span className="p-2 bg-gray-200 text-gray-700 font-mono">
+          {selectedCountry.code}
+        </span>
+        <input
+          type="tel"
+          value={phoneNumber}
+          onChange={handlePhoneChange}
+          placeholder="Votre numéro"
+          className="p-2 flex-grow focus:outline-none"
+        />
+      </div>
+      <p className="mt-4 text-gray-700">
+        Numéro complet :{" "}
+        <strong>
+          {selectedCountry.code} {phoneNumber}
+        </strong>
+      </p>
+    </div>
+  );
+}

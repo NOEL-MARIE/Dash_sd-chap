@@ -1,11 +1,16 @@
+
+import Head from 'next/head';
 import styles from './loading.module.css';
 
-export default function Loader ()  {
+export default function Home() {
   return (
-    <div className={styles.loader}>
-      <div className={styles.spinner}></div>
-    </div>
+    <>
+      <Head>
+        <title>Water Loader Animation</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+      <div className={styles.water}></div>
+    </>
   );
-};
-
+}
 
