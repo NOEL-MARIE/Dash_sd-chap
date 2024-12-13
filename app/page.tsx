@@ -92,7 +92,7 @@ const PConnexion = () => {
                 htmlFor="password"
                 className="block pt-4 pb-2 font-WorkSans text-xs max-sm:text-white"
               >
-                Mot de passe
+                Mot de passe y
               </label>
               <input
                 id="password"
